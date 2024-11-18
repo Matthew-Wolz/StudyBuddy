@@ -1,6 +1,9 @@
 package com.demo.android.studybuddy2;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -13,6 +16,8 @@ import androidx.navigation.ui.NavigationUI;
 import com.demo.android.studybuddy2.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Button loginButton;
 
     private ActivityMainBinding binding;
 
@@ -32,6 +37,20 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+
+        loginButton = findViewById(R.id.loginButton);
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Hide the button
+                loginButton.setVisibility(v.INVISIBLE);
+
+                // Hide background that conceals rest of app
+
+            }
+        });
     }
 
 }

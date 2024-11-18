@@ -1,6 +1,7 @@
 package com.demo.android.studybuddy2.ui.profile;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +15,14 @@ import com.demo.android.studybuddy2.databinding.FragmentProfileBinding;
 
 public class ProfileFragment extends Fragment {
 
+    private static final String TAG = "ProfileFragment";
+
     private FragmentProfileBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        Log.d(TAG, "Looking at Profile Tab");
+
         ProfileViewModel profileViewModel =
                 new ViewModelProvider(this).get(ProfileViewModel.class);
 
