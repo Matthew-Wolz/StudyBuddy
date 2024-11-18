@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
+import com.demo.android.studybuddy2.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +20,8 @@ import com.demo.android.studybuddy2.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private Button loginButton;
-
+    private View loginBackgroundImage;
+    private View homeFrag;
     private ActivityMainBinding binding;
 
     @Override
@@ -40,15 +43,23 @@ public class MainActivity extends AppCompatActivity {
 
 
         loginButton = findViewById(R.id.loginButton);
+        loginBackgroundImage = findViewById(R.id.loginBackground);
+        homeFrag = findViewById(R.id.navigation_home);
+
+//        navView = findViewById(R.id.nav_host_fragment_activity_main);
+        navView.setVisibility(View.INVISIBLE);
+        homeFrag.setVisibility((View.INVISIBLE));
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Hide the button
+                // Actual login process here?
+
+                // Hide the button and background, show BottomNavigationView
                 loginButton.setVisibility(v.INVISIBLE);
-
-                // Hide background that conceals rest of app
-
+                loginBackgroundImage.setVisibility((v.INVISIBLE)); //should not be transparent....
+                navView.setVisibility(View.VISIBLE);
+                homeFrag.setVisibility(View.VISIBLE); //doesn't work???
             }
         });
     }

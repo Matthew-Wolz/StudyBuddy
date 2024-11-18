@@ -20,5 +20,6 @@
     <fragment
         android:id="@+id/navigation_messages"
         android:name="com.demo.android.studybuddy2.ui.messages.MessagesFragment"
-        android:label="@string/title_messages" />
+        android:label="@string/title_messages"
+        tools:layout="@layout/fragment_messages"/>
 </navigation>

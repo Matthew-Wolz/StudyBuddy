@@ -10,12 +10,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.demo.android.studybuddy2.CardAdapter;
+import com.demo.android.studybuddy2.R;
 import com.demo.android.studybuddy2.databinding.FragmentHomeBinding;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class HomeFragment extends Fragment {
 
     private static final String TAG = "HomeFragment";
+    private RecyclerView recyclerView;
 
     private FragmentHomeBinding binding;
 
@@ -31,6 +40,28 @@ public class HomeFragment extends Fragment {
 
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+//        ###############################
+
+        recyclerView = root.findViewById(R.id.recyclerView);
+
+        // Set Layout Manager
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.setLayoutManager(getActivity());
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+
+        // Create Data
+        List<String> data = new ArrayList<>();
+        for (int i = 1; i <= 20; i++) {
+            data.add("Item " + i);
+        }
+
+        // Set Adapter
+        CardAdapter adapter = new CardAdapter(data);
+        recyclerView.setAdapter(adapter);
+
+//        #####################################
+
         return root;
     }
 
