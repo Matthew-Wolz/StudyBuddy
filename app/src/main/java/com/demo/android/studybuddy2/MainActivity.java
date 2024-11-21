@@ -1,12 +1,10 @@
 package com.demo.android.studybuddy2;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.demo.android.studybuddy2.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +14,13 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.demo.android.studybuddy2.databinding.ActivityMainBinding;
+import com.demo.android.studybuddy2.strategy.CompatibilityChecker;
+import com.demo.android.studybuddy2.strategy.StudyPreferenceCompatibilityStrategy;
+import com.demo.android.studybuddy2.strategy.AvailabilityCompatibilityStrategy;
+import com.demo.android.studybuddy2.utils.UserDataReader;
+
+import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private View loginBackgroundImage;
     private View homeFrag;
     private ActivityMainBinding binding;
+    private TextView compatibilityResultTextView; // Add TextView for compatibility result
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_profile, R.id.navigation_messages)
                 .build();
@@ -41,27 +45,57 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-
         loginButton = findViewById(R.id.loginButton);
         loginBackgroundImage = findViewById(R.id.loginBackground);
         homeFrag = findViewById(R.id.navigation_home);
 
-//        navView = findViewById(R.id.nav_host_fragment_activity_main);
+        // Initialize the TextView for displaying compatibility result
+        compatibilityResultTextView = findViewById(R.id.compatibilityResultsTextView);
+
         navView.setVisibility(View.INVISIBLE);
-        homeFrag.setVisibility((View.INVISIBLE));
+        homeFrag.setVisibility(View.INVISIBLE);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Actual login process here?
 
-                // Hide the button and background, show BottomNavigationView
-                loginButton.setVisibility(v.INVISIBLE);
-                loginBackgroundImage.setVisibility((v.INVISIBLE)); //should not be transparent....
+                loginButton.setVisibility(View.INVISIBLE);
+                loginBackgroundImage.setVisibility(View.INVISIBLE);
                 navView.setVisibility(View.VISIBLE);
-                homeFrag.setVisibility(View.VISIBLE); //doesn't work???
+                homeFrag.setVisibility(View.VISIBLE);
             }
         });
-    }
 
+        // -------- Compatibility Logic Starts Here --------
+        // Read user data from the CSV file
+        List<Map<String, String>> usersData = UserDataReader.readUserData(MainActivity.this, "users.csv");
+
+        // Example of converting Map<String, String> to User objects (adjust according to your CSV structure)
+        User user1 = new User(
+                usersData.get(0).get("name"),
+                usersData.get(0).get("study_preference"),
+                usersData.get(0).get("availability")
+        );
+        User user2 = new User(
+                usersData.get(1).get("name"),
+                usersData.get(1).get("study_preference"),
+                usersData.get(1).get("availability")
+        );
+
+        // Check study preference compatibility
+        CompatibilityChecker checker = new CompatibilityChecker(new StudyPreferenceCompatibilityStrategy());
+        boolean isCompatible = checker.checkCompatibility(user1, user2);
+
+        // Switch to availability compatibility
+        checker.setStrategy(new AvailabilityCompatibilityStrategy());
+        boolean isAvailable = checker.checkCompatibility(user1, user2);
+
+        // Display results in the UI
+        String compatibilityMessage = "Study Preference Compatible: " + isCompatible + "\n" +
+                "Availability Compatible: " + isAvailable;
+        compatibilityResultTextView.setText(compatibilityMessage);
+        compatibilityResultTextView.setVisibility(View.VISIBLE);
+        // -------- Compatibility Logic Ends Here --------
+    }
 }
