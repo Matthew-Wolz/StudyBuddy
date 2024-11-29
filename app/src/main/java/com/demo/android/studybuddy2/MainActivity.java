@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         }
         // -------- Compatibility Logic Ends Here --------
 
-        // -------- Notification and Location System Initialization --------
+        // -------- Notification and Location System Initialization ---------
         locationSystem = new LocationSystem();
         notificationSystem = new NotificationSystem();
 
