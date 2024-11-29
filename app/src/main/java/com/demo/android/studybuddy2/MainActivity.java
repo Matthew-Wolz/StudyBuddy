@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Log.e("MainActivity", "Insufficient user data");
         }
-        // -------- Compatibility Logic Ends Here --------
+        // -------- Compatibility Logic Ends Here ---------
 
         // -------- Notification and Location System Initialization ---------
         locationSystem = new LocationSystem();
