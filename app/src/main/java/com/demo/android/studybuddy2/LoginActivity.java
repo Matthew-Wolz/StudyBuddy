@@ -83,8 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                 firebaseAuthWithGoogle(account.getIdToken());
 
                 // go back
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
+                finish();
 
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
@@ -119,7 +118,6 @@ public class LoginActivity extends AppCompatActivity {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-
 
     private void updateUI(FirebaseUser user) {
 

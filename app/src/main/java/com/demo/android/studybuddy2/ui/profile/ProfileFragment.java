@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class ProfileFragment extends Fragment {
 
     private static final String TAG = "ProfileFragment";
+    private FirebaseAuth mauth;
 
     private FragmentProfileBinding binding;
 
@@ -32,6 +33,7 @@ public class ProfileFragment extends Fragment {
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+        mauth = FirebaseAuth.getInstance();
 
         Button logoutButton = root.findViewById(R.id.button_logout);
         logoutButton.setOnClickListener(new View.OnClickListener() {
@@ -47,8 +49,7 @@ public class ProfileFragment extends Fragment {
     }
 
     public void logOut(){
-        Log.d(TAG, "Logged out");
-        FirebaseAuth.getInstance().signOut();
+        mauth.signOut();
         Toast.makeText(getActivity(), "Logged out successfully!", Toast.LENGTH_SHORT).show();
     }
 
