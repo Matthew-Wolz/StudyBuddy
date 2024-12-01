@@ -25,6 +25,8 @@ import com.demo.android.studybuddy2.strategy.CompatibilityChecker;
 import com.demo.android.studybuddy2.strategy.StudyPreferenceCompatibilityStrategy;
 import com.demo.android.studybuddy2.strategy.AvailabilityCompatibilityStrategy;
 import com.demo.android.studybuddy2.utils.UserDataReader;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 import java.util.Map;
@@ -40,11 +42,14 @@ public class MainActivity extends AppCompatActivity {
     private NotificationSystem notificationSystem;
     private LocationSystem locationSystem;
 
+    // [START declare_auth]
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-
+        mAuth = FirebaseAuth.getInstance();
 //        SharedPreferences sharedPref = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
 //        boolean isLoggedIn = sharedPref.getBoolean("isLoggedIn", false);
 //        if (!isLoggedIn)
@@ -79,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
             Log.e("MainActivity", "Some UI elements are not properly initialized.");
             return;
         }
+
 
 //        navView.setVisibility(View.INVISIBLE);
 //        homeFrag.setVisibility(View.INVISIBLE);
@@ -122,6 +128,20 @@ public class MainActivity extends AppCompatActivity {
         notificationSystem.pushNotification("Welcome", "Welcome to StudyBuddy!");
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
+    public void updateUI(FirebaseUser currentUser){
+        if(currentUser == null){
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
+    }
 
 //    Chat Code: (Doesn't work, but may be a better approach to switching fragments)
 

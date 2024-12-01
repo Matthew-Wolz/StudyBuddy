@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "499872290324",
+    "firebase_url": "https://study-buddy-91bb2-default-rtdb.firebaseio.com",
     "project_id": "study-buddy-91bb2",
     "storage_bucket": "study-buddy-91bb2.firebasestorage.app"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.demo.android.studybuddy2"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "499872290324-90hmdh3c764j4lbljsitnf60tnmqs5em.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.demo.android.studybuddy2",
+            "certificate_hash": "033033883492a98c7e57f1f9426809ae3a55ff6c"
+          }
+        },
+        {
+          "client_id": "499872290324-2sac0b9mab4j16kr492clnbb3tglnh3k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCifzXwX_JSjM0JxPm5GGAfeIo8g6pnQmc"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499872290324-2sac0b9mab4j16kr492clnbb3tglnh3k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
