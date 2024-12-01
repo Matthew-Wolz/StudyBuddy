@@ -2,26 +2,120 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="372dp"
     android:layout_height="250dp"
-    app:cardBackgroundColor="#D02E2E"
-    android:layout_marginBottom="25dp">
+    android:layout_marginBottom="25dp"
+    android:background="@drawable/rounded_corners"
+    android:elevation="-10dp"
+    android:padding="0dp"
+    app:cardBackgroundColor="#FFFFFF">
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/possibleMatchName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Sample Card"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="25dp"
+        android:alpha="1"
+        android:elevation="1dp"
+        android:text="Test Subject"
+        android:textColor="@color/black"
         android:textSize="28sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/possibleMatchAvailabilityHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="75dp"
+        android:alpha="1"
+        android:elevation="1dp"
+        android:text="Availability:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/possibleMatchAvailability"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="100dp"
+        android:alpha="1"
+        android:elevation="1dp"
+        android:text="3pm-9pm"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/possibleMatchPreferenceHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="125dp"
+        android:alpha="1"
+        android:elevation="1dp"
+        android:text="Preferences:"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/possibleMatchPreferences"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="150dp"
+        android:alpha="1"
+        android:elevation="1dp"
+        android:text="Computer Science, Math"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+
+    <TextView
+        android:id="@+id/possibleMatchCompatibilityHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="197dp"
+        android:alpha="1"
+        android:elevation="1dp"
+        android:text="Compatibility"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/possibleMatchCompatibilityScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="310dp"
+        android:layout_marginTop="190dp"
+        android:alpha="1"
+        android:elevation="1dp"
+        android:text="87"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="30sp"
+        android:textStyle="normal|bold|italic" />
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
+        android:layout_width="143dp"
         android:layout_height="match_parent"
         android:layout_gravity="left"
-        android:alpha=".3"
-        tools:srcCompat="@android:drawable/btn_star_big_on" />
+        android:elevation="-1dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@mipmap/ic_launcher" />
+
 </androidx.cardview.widget.CardView>

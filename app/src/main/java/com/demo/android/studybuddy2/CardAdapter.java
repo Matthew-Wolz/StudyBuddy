@@ -39,7 +39,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewItem = itemView.findViewById(R.id.textView);
+            textViewItem = itemView.findViewById(R.id.possibleMatchName);
         }
     }
 }

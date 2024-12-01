@@ -53,7 +53,7 @@ public class HomeFragment extends Fragment {
         // Create Data
         List<String> data = new ArrayList<>();
         for (int i = 1; i <= 20; i++) {
-            data.add("Item " + i);
+            data.add("Test Subj. " + i);
         }
 
         // Set Adapter
