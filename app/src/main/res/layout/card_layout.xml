@@ -20,7 +20,7 @@
         android:layout_marginTop="20dp"
         android:alpha="1"
         android:elevation="1dp"
-        android:text="Test Subject"
+        android:text="Roshan Thapa Magar"
         android:textColor="@color/black"
         android:textSize="28sp"
         android:textStyle="bold" />
@@ -48,7 +48,7 @@
         android:layout_marginTop="70dp"
         android:alpha="1"
         android:elevation="1dp"
-        android:text="87"
+        android:text="100"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="30sp"
         android:textStyle="normal|bold|italic" />
@@ -76,7 +76,7 @@
         android:layout_marginTop="150dp"
         android:alpha="1"
         android:elevation="1dp"
-        android:text="Computer Science, Math"
+        android:text="Computer Science"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="normal" />
@@ -104,7 +104,7 @@
         android:layout_marginTop="150dp"
         android:alpha="1"
         android:elevation="1dp"
-        android:text="3pm-9pm"
+        android:text="Night"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="normal" />
@@ -132,7 +132,7 @@
         android:layout_marginTop="200dp"
         android:alpha="1"
         android:elevation="1dp"
-        android:text="Junior"
+        android:text="Sophomore"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="normal" />

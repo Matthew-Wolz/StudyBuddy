@@ -85,6 +85,7 @@ public class HomeFragment extends Fragment {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         mauth = FirebaseAuth.getInstance();
         FirebaseUser account = mauth.getCurrentUser();
+        if(account == null) { return; }
         DocumentReference docRef = db.collection("users").document(account.getEmail());
 
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
