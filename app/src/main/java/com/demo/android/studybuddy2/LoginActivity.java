@@ -101,11 +101,9 @@ public class LoginActivity extends AppCompatActivity {
                 Map<String, Object> user = new HashMap<>();
                 user.put("firstAndLast", account.getDisplayName());
 
-                DocumentReference docRef = db.collection("users").document();
-
                 db.collection("users")
                         .document(account.getEmail())
-                        .set(user, SetOptions.merge())
+                        .set(user)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
 
                             @Override

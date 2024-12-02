@@ -89,9 +89,9 @@ public class ProfileFragment extends Fragment {
 //                        String strugglingWith = (String) userData.get("Struggling With");
                         String confidentWith = (String) userData.get("preferences");
 
-                        nameField.setText(fullName.toString());
-                        availabilityField.setText(availability.toString());
-                        preferencesField.setText(confidentWith.toString());
+                        nameField.setText(fullName);
+                        availabilityField.setText(availability);
+                        preferencesField.setText(confidentWith);
 
                     }else {
                         Log.d("Firestore", "No such document");
