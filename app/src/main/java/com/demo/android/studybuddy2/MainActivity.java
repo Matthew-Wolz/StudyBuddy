@@ -139,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
 //    Chat Code: (Doesn't work, but may be a better approach to switching fragments)
 
 //    private void setupFragments() {
