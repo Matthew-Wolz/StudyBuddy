@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> {
-    private List<String> dataList;
+    private List<User> dataList;
 
-    public CardAdapter(List<String> dataList) {
+    public CardAdapter(List<User> dataList) {
         this.dataList = dataList;
     }
     //TODO: Change the above lines to utilize Firebase

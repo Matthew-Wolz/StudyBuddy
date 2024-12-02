@@ -126,11 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
         locationSystem.addLocation("Central Park", 40.785091, -73.968285);
         notificationSystem.pushNotification("Welcome", "Welcome to StudyBuddy!");
-    }
 
-    @Override
-    public void onStart() {
-        super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
@@ -140,7 +136,9 @@ public class MainActivity extends AppCompatActivity {
         }else {
             Log.d("GoogleActivity", currentUser.getDisplayName());
         }
+
     }
+
 
 //    Chat Code: (Doesn't work, but may be a better approach to switching fragments)
 

@@ -65,18 +65,6 @@ public class HomeFragment extends Fragment {
 //        recyclerView.setLayoutManager(getActivity());
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
-        // Create Data
-        List<String> data = new ArrayList<>(); //TODO: Replace this with Firebase container.
-
-        //TODO: We wont need to enter values here, but will need to initialize the CardAdapter
-        for (int i = 1; i <= 20; i++) {
-            data.add("Test Subj. " + i);
-
-        }
-
-        // Set Adapter
-        CardAdapter adapter = new CardAdapter(data); //Initializing CardAdapter
-        recyclerView.setAdapter(adapter);
         addFirebaseEventListener(myRef);
         readDataOnStart(myRef);
 
@@ -93,8 +81,10 @@ public class HomeFragment extends Fragment {
                     Log.e("firebase", "Error getting data", task.getException());
                 }
                 else {
+
+                    List<User> data = new ArrayList<>();
+
                     for(DataSnapshot userSnapshot: task.getResult().getChildren()){
-                        
                         String timestamp = userSnapshot.child("Timestamp").getValue(String.class);
                         String emailAddress = userSnapshot.child("Email Address").getValue(String.class);
                         String fullName = userSnapshot.child("First & Last Name").getValue(String.class);
@@ -104,8 +94,15 @@ public class HomeFragment extends Fragment {
                         String strugglingWith = userSnapshot.child("Struggling With").getValue(String.class);
                         String confidentWith = userSnapshot.child("Confident With").getValue(String.class);
                         // Use the retrieved data as needed
-                        System.out.println("User: " + fullName + ", Email: " + emailAddress);
+
+                        User user = new User(fullName, confidentWith, availability);
+
+                        data.add(user);
                     }
+                    Log.d("Database", data.toString());
+                    // Set Adapter
+                    CardAdapter adapter = new CardAdapter(data); //Initializing CardAdapter
+                    recyclerView.setAdapter(adapter);
                 }
             }
         });
