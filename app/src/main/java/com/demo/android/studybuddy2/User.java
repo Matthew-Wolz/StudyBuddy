@@ -3,9 +3,12 @@ package com.demo.android.studybuddy2;
 import java.util.Objects;
 
 public class User {
-    private String name;
-    private String studyPreference;
-    private String availability;
+    public String name;
+    public String studyPreference;
+    public String availability;
+
+    // needed for database
+    public User(){}
 
     // Constructor
     public User(String name, String studyPreference, String availability) {
