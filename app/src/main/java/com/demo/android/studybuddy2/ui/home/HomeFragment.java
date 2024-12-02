@@ -51,13 +51,15 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         // Create Data
-        List<String> data = new ArrayList<>();
+        List<String> data = new ArrayList<>(); //TODO: Replace this with Firebase container.
+
+        //TODO: We wont need to enter values here, but will need to initialize the CardAdapter
         for (int i = 1; i <= 20; i++) {
             data.add("Test Subj. " + i);
         }
 
         // Set Adapter
-        CardAdapter adapter = new CardAdapter(data);
+        CardAdapter adapter = new CardAdapter(data); //Initializing CardAdapter
         recyclerView.setAdapter(adapter);
 
 //        #####################################

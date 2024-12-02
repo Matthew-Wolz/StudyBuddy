@@ -1,8 +1,11 @@
 package com.demo.android.studybuddy2;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +17,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
     public CardAdapter(List<String> dataList) {
         this.dataList = dataList;
     }
+    //TODO: Change the above lines to utilize Firebase
 
     @NonNull
     @Override
@@ -25,8 +29,26 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        String data = dataList.get(position);
-        holder.textViewItem.setText(data);
+//        TODO: Uncomment this entire block
+//        String data = dataList.get(position);
+//        holder.matchName.setText(data);
+//        position++;
+//        data = dataList.get(position);
+//
+//        holder.matchAvailability.setText(data);
+//        position++;
+//        data = dataList.get(position);
+//
+//        holder.matchPreferences.setText(data);
+//        position++;
+//        data = dataList.get(position);
+//
+//        holder.compatibilityScore.setText(data);
+//        position++;
+//        data = dataList.get(position);
+//
+//        Bitmap bitmap = BitmapFactory.decodeFile(data); //data should be a filepath string
+//        holder.profileImage.setImageBitmap(bitmap);
     }
 
     @Override
@@ -35,11 +57,16 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
     }
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView textViewItem;
+        TextView matchName, matchAvailability, matchPreferences, compatibilityScore;
+        ImageView profileImage; //need to access image uploaded to Firebase?
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewItem = itemView.findViewById(R.id.possibleMatchName);
+//            textViewItem = itemView.findViewById(R.id.possibleMatchName);
+            matchName = itemView.findViewById(R.id.possibleMatchName);
+            matchAvailability = itemView.findViewById(R.id.possibleMatchAvailability);
+            matchPreferences = itemView.findViewById(R.id.possibleMatchPreferences);
+            compatibilityScore = itemView.findViewById(R.id.possibleMatchCompatibilityScore);
         }
     }
 }
