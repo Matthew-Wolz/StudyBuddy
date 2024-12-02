@@ -46,6 +46,10 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
 //        holder.compatibilityScore.setText(data);
 //        position++;
 //        data = dataList.get(position);
+
+//        holder.contactInfo.setText(data);
+//        position++;
+//        data = dataList.get(position);
 //
 //        Bitmap bitmap = BitmapFactory.decodeFile(data); //data should be a filepath string
 //        holder.profileImage.setImageBitmap(bitmap);
@@ -57,7 +61,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
     }
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView matchName, matchAvailability, matchPreferences, compatibilityScore;
+        TextView matchName, matchAvailability, matchPreferences, compatibilityScore, contactInfo;
         ImageView profileImage; //need to access image uploaded to Firebase?
 
         public MyViewHolder(@NonNull View itemView) {
@@ -67,6 +71,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
             matchAvailability = itemView.findViewById(R.id.possibleMatchAvailability);
             matchPreferences = itemView.findViewById(R.id.possibleMatchPreferences);
             compatibilityScore = itemView.findViewById(R.id.possibleMatchCompatibilityScore);
+            contactInfo = itemView.findViewById(R.id.possibleMatchContactInfo);
         }
     }
 }
