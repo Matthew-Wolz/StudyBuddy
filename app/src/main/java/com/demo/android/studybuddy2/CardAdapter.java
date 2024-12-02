@@ -30,14 +30,15 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         User user = dataList.get(position);
-        holder.matchName.setText(user.getName());
-        holder.matchAvailability.setText(user.getAvailability());
-        holder.matchPreferences.setText(user.getStudyPreference());
 
-        // this later
-//        holder.compatibilityScore.setText(user.getStrugglingWith());
-//        // Example, use appropriate logic
-//        holder.contactInfo.setText(user.getEmailAddress());
+        // Applying values to UI elements
+        holder.matchName.setText(user.getName());
+        holder.matchStrengths.setText(user.getStrengths());
+        holder.matchAvailability.setText(user.getAvailability());
+        holder.matchWeaknesses.setText(user.getWeaknesses());
+        holder.matchGrade.setText(user.getGrade());
+
+        //TODO: Apply compatibility value to UI
     }
 
          @Override
@@ -46,17 +47,20 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
     }
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView matchName, matchAvailability, matchPreferences, compatibilityScore, contactInfo;
+        TextView matchName, matchStrengths, matchAvailability, matchWeaknesses, matchGrade, compatibilityScore;
         ImageView profileImage; //need to access image uploaded to Firebase?
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-    //            textViewItem = itemView.findViewById(R.id.possibleMatchName);
-            matchName = itemView.findViewById(R.id.possibleMatchName);
-            matchAvailability = itemView.findViewById(R.id.possibleMatchAvailability);
-            matchPreferences = itemView.findViewById(R.id.possibleMatchPreferences);
-            compatibilityScore = itemView.findViewById(R.id.possibleMatchCompatibilityScore);
-            contactInfo = itemView.findViewById(R.id.possibleMatchContactInfo);
+
+            // Initializing UI elements
+            matchName = itemView.findViewById(R.id.MatchName);
+            matchStrengths = itemView.findViewById(R.id.Strengths);
+            matchAvailability = itemView.findViewById(R.id.Availability);
+            matchWeaknesses = itemView.findViewById(R.id.Weakness);
+            matchGrade = itemView.findViewById(R.id.Grade);
+
+            compatibilityScore = itemView.findViewById(R.id.CompatibilityScore);
         }
     }
 }

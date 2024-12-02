@@ -4,17 +4,21 @@ import java.util.Objects;
 
 public class User {
     public String name;
-    public String studyPreference;
+    public String strengths;
     public String availability;
+    public String weaknesses;
+    public String grade;
 
     // needed for database
     public User(){}
 
     // Constructor
-    public User(String name, String studyPreference, String availability) {
+    public User(String name, String strengths, String availability, String weaknesses, String grade) {
         this.name = name;
-        this.studyPreference = studyPreference;
+        this.strengths = strengths;
         this.availability = availability;
+        this.weaknesses = weaknesses;
+        this.grade = grade;
     }
 
     // Getter methods
@@ -22,21 +26,32 @@ public class User {
         return name;
     }
 
-    public String getStudyPreference() {
-        return studyPreference;
+    public String getStrengths() {
+        return strengths;
     }
 
     public String getAvailability() {
         return availability;
     }
 
+    public String getWeaknesses()
+    {
+        return weaknesses;
+    }
+
+    public String getGrade()
+    {
+        return grade;
+    }
+
+
     // Optional setter methods for flexibility
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setStudyPreference(String studyPreference) {
-        this.studyPreference = studyPreference;
+    public void setstrengths(String strengths) {
+        this.strengths = strengths;
     }
 
     public void setAvailability(String availability) {
@@ -46,7 +61,7 @@ public class User {
     // Optional toString() method for debugging/display
     @Override
     public String toString() {
-        return "Name: " + name + ", Study Preference: " + studyPreference + ", Availability: " + availability;
+        return "Name: " + name + ", Study Preference: " + strengths + ", Availability: " + availability;
     }
 
     // Optional equals() and hashCode() methods for comparing Users
@@ -56,12 +71,12 @@ public class User {
         if (obj == null || getClass() != obj.getClass()) return false;
         User user = (User) obj;
         return name.equals(user.name) &&
-                studyPreference.equals(user.studyPreference) &&
+                strengths.equals(user.strengths) &&
                 availability.equals(user.availability);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, studyPreference, availability);
+        return Objects.hash(name, strengths, availability);
     }
 }
