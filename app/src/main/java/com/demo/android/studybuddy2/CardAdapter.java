@@ -29,33 +29,18 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-//        TODO: Uncomment this entire block
-//        String data = dataList.get(position);
-//        holder.matchName.setText(data);
-//        position++;
-//        data = dataList.get(position);
-//
-//        holder.matchAvailability.setText(data);
-//        position++;
-//        data = dataList.get(position);
-//
-//        holder.matchPreferences.setText(data);
-//        position++;
-//        data = dataList.get(position);
-//
-//        holder.compatibilityScore.setText(data);
-//        position++;
-//        data = dataList.get(position);
+        User user = dataList.get(position);
+        holder.matchName.setText(user.getName());
+        holder.matchAvailability.setText(user.getAvailability());
+        holder.matchPreferences.setText(user.getStudyPreference());
 
-//        holder.contactInfo.setText(data);
-//        position++;
-//        data = dataList.get(position);
-//
-//        Bitmap bitmap = BitmapFactory.decodeFile(data); //data should be a filepath string
-//        holder.profileImage.setImageBitmap(bitmap);
+        // this later
+//        holder.compatibilityScore.setText(user.getStrugglingWith());
+//        // Example, use appropriate logic
+//        holder.contactInfo.setText(user.getEmailAddress());
     }
 
-    @Override
+         @Override
     public int getItemCount() {
         return dataList.size();
     }
@@ -66,7 +51,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-//            textViewItem = itemView.findViewById(R.id.possibleMatchName);
+    //            textViewItem = itemView.findViewById(R.id.possibleMatchName);
             matchName = itemView.findViewById(R.id.possibleMatchName);
             matchAvailability = itemView.findViewById(R.id.possibleMatchAvailability);
             matchPreferences = itemView.findViewById(R.id.possibleMatchPreferences);
