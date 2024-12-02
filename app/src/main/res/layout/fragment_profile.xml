@@ -23,11 +23,24 @@
             android:textSize="34sp"
             android:textStyle="bold" />
 
+        <!-- Include the sample card -->
+        <FrameLayout
+            android:id="@+id/uProfileCardFrame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <include
+                android:id="@+id/userProfileCard"
+                layout="@layout/card_layout" />
+        </FrameLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/samplePFP"
