@@ -139,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:text="Heyyyy"
+                android:text="What's up?"
                 android:textAlignment="textEnd" />
         </LinearLayout>
 

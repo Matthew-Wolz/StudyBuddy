@@ -109,10 +109,27 @@
         android:textSize="30sp"
         android:textStyle="normal|bold|italic" />
 
+    <TextView
+        android:id="@+id/possibleMatchContactInfoHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="227dp"
+        android:text="Contact Info:"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/possibleMatchContactInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="227dp"
+        android:text="testSubject@gmail.com" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="143dp"
-        android:layout_height="match_parent"
+        android:layout_height="225dp"
         android:layout_gravity="left"
         android:elevation="-1dp"
         android:scaleType="fitXY"
