@@ -37,6 +37,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
         holder.matchAvailability.setText(user.getAvailability());
         holder.matchWeaknesses.setText(user.getWeaknesses());
         holder.matchGrade.setText(user.getGrade());
+        holder.compatibilityScore.setText(user.getScore());
 
         //TODO: Apply compatibility value to UI
     }

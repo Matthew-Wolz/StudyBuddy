@@ -8,18 +8,21 @@ public class User {
     public String availability;
     public String weaknesses;
     public String grade;
+    public String major;
+    public String compatibility = "";
 
     // needed for database
     public User(){}
 
     // Constructor
-    public User(String name, String strengths, String availability, String weaknesses, String grade) {
+    public User(String name, String strengths, String availability, String weaknesses, String grade, String major) {
         this.name = name;
         this.strengths = strengths;
         this.availability = availability;
         this.weaknesses = weaknesses;
         this.grade = grade;
-    }
+        this.major = major;
+    };
 
     // Getter methods
     public String getName() {
@@ -44,6 +47,9 @@ public class User {
         return grade;
     }
 
+    public String getScore() { return compatibility; }
+
+
 
     // Optional setter methods for flexibility
     public void setName(String name) {
@@ -57,6 +63,7 @@ public class User {
     public void setAvailability(String availability) {
         this.availability = availability;
     }
+
 
     // Optional toString() method for debugging/display
     @Override

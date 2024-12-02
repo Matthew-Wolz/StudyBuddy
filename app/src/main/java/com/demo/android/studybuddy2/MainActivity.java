@@ -1,35 +1,24 @@
 package com.demo.android.studybuddy2;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.util.Log;
 
-import com.demo.android.studybuddy2.ui.home.HomeFragment;
-import com.demo.android.studybuddy2.ui.messages.MessagesFragment;
-import com.demo.android.studybuddy2.ui.profile.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.demo.android.studybuddy2.databinding.ActivityMainBinding;
-import com.demo.android.studybuddy2.strategy.CompatibilityChecker;
-import com.demo.android.studybuddy2.strategy.StudyPreferenceCompatibilityStrategy;
-import com.demo.android.studybuddy2.strategy.AvailabilityCompatibilityStrategy;
-import com.demo.android.studybuddy2.utils.UserDataReader;
+//import com.demo.android.studybuddy2.strategy.StudyPreferenceCompatibilityStrategy;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.List;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -90,35 +79,6 @@ public class MainActivity extends AppCompatActivity {
 //        homeFrag.setVisibility(View.INVISIBLE);
 
 
-//        // -------- Compatibility Logic Starts Here --------
-//        List<Map<String, String>> usersData = UserDataReader.readUserData(MainActivity.this, "users.csv");
-//
-//        if (usersData != null && usersData.size() >= 2) {
-//            User user1 = new User(
-//                    usersData.get(0).get("name"),
-//                    usersData.get(0).get("study_preference"),
-//                    usersData.get(0).get("availability")
-//            );
-//            User user2 = new User(
-//                    usersData.get(1).get("name"),
-//                    usersData.get(1).get("study_preference"),
-//                    usersData.get(1).get("availability")
-//            );
-//
-//            CompatibilityChecker checker = new CompatibilityChecker(new StudyPreferenceCompatibilityStrategy());
-//            boolean isCompatible = checker.checkCompatibility(user1, user2);
-//
-//            checker.setStrategy(new AvailabilityCompatibilityStrategy());
-//            boolean isAvailable = checker.checkCompatibility(user1, user2);
-//
-//            String compatibilityMessage = "Study Preference Compatible: " + isCompatible + "\n" +
-//                    "Availability Compatible: " + isAvailable;
-//            compatibilityResultTextView.setText(compatibilityMessage);
-//            compatibilityResultTextView.setVisibility(View.VISIBLE);
-//        } else {
-//            Log.e("MainActivity", "Insufficient user data");
-//        }
-//        // -------- Compatibility Logic Ends Here ---------
 
         // -------- Notification and Location System Initialization ---------
         locationSystem = new LocationSystem();
