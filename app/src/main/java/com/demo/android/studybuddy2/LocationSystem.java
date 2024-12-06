@@ -1,5 +1,7 @@
 package com.demo.android.studybuddy2;
 
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +33,7 @@ public class LocationSystem {
             this.longitude = longitude;
         }
 
+        @NonNull
         @Override
         public String toString() {
             return "Location{" +
