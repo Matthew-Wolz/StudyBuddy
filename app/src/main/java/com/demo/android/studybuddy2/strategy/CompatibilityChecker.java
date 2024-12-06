@@ -2,11 +2,10 @@ package com.demo.android.studybuddy2.strategy;
 
 import com.demo.android.studybuddy2.User;
 
-public class CompatibilityChecker implements CompatibilityStrategy {
+public class CompatibilityChecker implements CompatibilityStrategy{
 
     @Override
-    public double calculateCompatibility(User user1, User user2) {
-
+    public double calculateCompatibility(User user1, User user2){
         //begin the user with a score of 100 and slowly deduct
         int score = 100;
 
@@ -14,8 +13,8 @@ public class CompatibilityChecker implements CompatibilityStrategy {
         String strugglingWith1 = user1.weaknesses;
         String strugglingWith2 = user2.weaknesses;
 
-        if(!strugglingWith1.equalsIgnoreCase(strugglingWith2)) {
-            //remove 10 points for mismatching struggling with fields
+        if(!isEqualSafe(strugglingWith1, strugglingWith2)){
+            //remove 10 points for mismatching "struggling with" fields
             score -= 10;
         }
 
@@ -23,8 +22,8 @@ public class CompatibilityChecker implements CompatibilityStrategy {
         String availability1 = user1.availability;
         String availability2 = user2.availability;
 
-        if(hasOverlap(availability1, availability2)) {
-            //remove 10 points for mismatching availability fields
+        if(!hasOverlapSafe(availability1, availability2)){
+            // Remove 15 points for mismatching availability fields
             score -= 15;
         }
 
@@ -32,7 +31,7 @@ public class CompatibilityChecker implements CompatibilityStrategy {
         String major1 = user1.major;
         String major2 = user2.major;
 
-        if(hasOverlap(major1, major2)) {
+        if(!hasOverlapSafe(major1, major2)){
             //remove 5 points for mismatching major fields
             score -= 5;
         }
@@ -41,8 +40,8 @@ public class CompatibilityChecker implements CompatibilityStrategy {
         String grade1 = user1.grade;
         String grade2 = user2.grade;
 
-        if(!grade1.equalsIgnoreCase(grade2)) {
-            //remove 10 points for mismatching grade fields
+        if(!isEqualSafe(grade1, grade2)){
+            //remove 5 points for mismatching grade fields
             score -= 5;
         }
 
@@ -50,26 +49,38 @@ public class CompatibilityChecker implements CompatibilityStrategy {
         String confidentWith1 = user1.strengths;
         String confidentWith2 = user2.strengths;
 
-        if(hasOverlap(confidentWith1, confidentWith2)) {
-            //remove 10 points for mismatching grade fields
+        if (!hasOverlapSafe(confidentWith1, confidentWith2)){
+            //remove 10 points for mismatching "confident with" fields
             score -= 10;
         }
 
         return score;
     }
 
-    //helper method to check if there is overlap in availability slots or other comma-separated fields
-    private boolean hasOverlap(String field1, String field2) {
-        for (String slot : field1.split(", ")) {
-            if (field2.contains(slot)) {
-                return false;
+    // Helper method to check if there is overlap in availability slots or other comma-separated fields
+    private boolean hasOverlapSafe(String field1, String field2){
+        if(field1 == null || field2 == null) {
+            return false;
+        }
+
+        for(String slot : field1.split(",")){
+            if(field2.contains(slot.trim())){
+                return true;
             }
         }
-        return true;
+        return false;
+    }
+
+    //helper method for null-safe equality check
+    private boolean isEqualSafe(String str1, String str2){
+        if(str1 == null || str2 == null) {
+            return false;
+        }
+        return str1.equalsIgnoreCase(str2);
     }
 
     @Override
-    public boolean checkCompatibility(User user1, User user2) {
+    public boolean checkCompatibility(User user1, User user2){
         double compatibilityScore = calculateCompatibility(user1, user2);
         //return true if a user is above a compatibility score of 75
         return compatibilityScore >= 75;
