@@ -31,7 +31,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         User user = dataList.get(position);
 
-        // Applying values to UI elements
+        //apply value to UI elements
         holder.matchName.setText(user.getName());
         holder.matchStrengths.setText(user.getStrengths());
         holder.matchAvailability.setText(user.getAvailability());
@@ -42,19 +42,19 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
         //TODO: Apply compatibility value to UI
     }
 
-         @Override
+    @Override
     public int getItemCount() {
         return dataList.size();
     }
 
     static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView matchName, matchStrengths, matchAvailability, matchWeaknesses, matchGrade, compatibilityScore;
-        ImageView profileImage; //need to access image uploaded to Firebase?
+        ImageView profileImage; //will need to implement image access through Firebase
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            // Initializing UI elements
+            //initialize UI elements
             matchName = itemView.findViewById(R.id.MatchName);
             matchStrengths = itemView.findViewById(R.id.Strengths);
             matchAvailability = itemView.findViewById(R.id.Availability);
