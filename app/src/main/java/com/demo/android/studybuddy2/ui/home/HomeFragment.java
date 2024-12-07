@@ -59,24 +59,14 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-//        final TextView textView = binding.textHome;
-//        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
-//        ###############################
-
         recyclerView = root.findViewById(R.id.recyclerView);
 
         // Set Layout Manager
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        recyclerView.setLayoutManager(getActivity());
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-
-
 
         addFirebaseEventListener(myRef);
         readUserData();
 
-//        #####################################
         return root;
     }
 

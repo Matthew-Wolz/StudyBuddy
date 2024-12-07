@@ -8,7 +8,6 @@ import java.util.List;
 public class NotificationSystem {
     public void pushNotification(String title, String message) {
 //        System.out.println("New notification: " + title + " - " + message);
-//        TODO: figure out context
 //        Toast.makeText(getContext(), title + ": " + message, Toast.LENGTH_SHORT).show();
     }
 }

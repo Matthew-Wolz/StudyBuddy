@@ -1,7 +1,5 @@
 package com.demo.android.studybuddy2;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +15,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
     public CardAdapter(List<User> dataList) {
         this.dataList = dataList;
     }
-    //TODO: Change the above lines to utilize Firebase
 
     @NonNull
     @Override
@@ -31,15 +28,15 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         User user = dataList.get(position);
 
-        //apply value to UI elements
+        //TODO autofill other values once name has been retrieved
+
+        //apply value to individual UI elements
         holder.matchName.setText(user.getName());
         holder.matchStrengths.setText(user.getStrengths());
         holder.matchAvailability.setText(user.getAvailability());
         holder.matchWeaknesses.setText(user.getWeaknesses());
         holder.matchGrade.setText(user.getGrade());
         holder.compatibilityScore.setText(user.getScore());
-
-        //TODO: Apply compatibility value to UI
     }
 
     @Override

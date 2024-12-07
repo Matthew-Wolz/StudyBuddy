@@ -39,23 +39,9 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-//        SharedPreferences sharedPref = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-//        boolean isLoggedIn = sharedPref.getBoolean("isLoggedIn", false);
-//        if (!isLoggedIn)
-//        {
-//            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-//            startActivity(intent);
-//            finish(); // Close MainActivity
-//        }
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-//        setContentView(R.layout.activity_main);
-
-//        setupFragments();
-
-        //TODO: Remove stuff below this point?? (Excluding commented out code)
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -73,12 +59,6 @@ public class MainActivity extends AppCompatActivity {
             Log.e("MainActivity", "Some UI elements are not properly initialized.");
             return;
         }
-
-
-//        navView.setVisibility(View.INVISIBLE);
-//        homeFrag.setVisibility(View.INVISIBLE);
-
-
 
         // -------- Notification and Location System Initialization ---------
         locationSystem = new LocationSystem();
@@ -99,46 +79,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    Chat Code: (Doesn't work, but may be a better approach to switching fragments)
-
-//    private void setupFragments() {
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//
-//        if (fragmentManager.findFragmentById(R.id.fragmentContainer) == null) {
-//            fragmentManager.beginTransaction()
-//                    .replace(R.id.fragmentContainer, new HomeFragment())
-//                    .commit();
-//        }
-//
-//        setupBottomNavigation();
-//    }
-//
-//    private void setupBottomNavigation() {
-//        BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
-//
-//        bottomNavigationView.setOnItemSelectedListener(item -> {
-//            Fragment selectedFragment;
-//
-//            switch (item.getItemId()) {
-//                case R.id.navigation_home:
-//                    selectedFragment = new HomeFragment();
-//                    break;
-//                case R.id.navigation_profile:
-//                    selectedFragment = new ProfileFragment();
-//                    break;
-//                case R.id.navigation_messages:
-//                default:
-//                    selectedFragment = new MessagesFragment();
-//                    break;
-//            }
-//
-//            getSupportFragmentManager().beginTransaction()
-//                    .replace(R.id.fragmentContainer, selectedFragment)
-//                    .commit();
-//
-//            return true;
-//        });
-//
-//        bottomNavigationView.setSelectedItemId(R.id.nav_home);
-//    }
 }

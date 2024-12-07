@@ -102,11 +102,6 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-
-
-//        final TextView textView = binding.textProfile;
-//        profileViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
         nameField = binding.inputName;
         availabilityField = binding.inputAvailability;
         preferencesField = binding.inputPreferences;
