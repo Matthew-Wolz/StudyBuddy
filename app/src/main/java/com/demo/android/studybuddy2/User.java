@@ -11,10 +11,10 @@ public class User {
     public String major;
     public String compatibility = "";
 
-    // needed for database
+    //needed for database
     public User(){}
 
-    // Constructor
+    //constructor
     public User(String name, String strengths, String availability, String weaknesses, String grade, String major) {
         this.name = name;
         this.strengths = strengths;
@@ -24,7 +24,7 @@ public class User {
         this.major = major;
     };
 
-    // Getter methods
+    //getter methods
     public String getName() {
         return name;
     }
@@ -51,12 +51,12 @@ public class User {
 
 
 
-    // Optional setter methods for flexibility
+    //optional setter methods for flexibility
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setstrengths(String strengths) {
+    public void setStrengths(String strengths) {
         this.strengths = strengths;
     }
 
@@ -65,13 +65,13 @@ public class User {
     }
 
 
-    // Optional toString() method for debugging/display
+    //toString() method for debugging/display
     @Override
     public String toString() {
         return "Name: " + name + ", Study Preference: " + strengths + ", Availability: " + availability;
     }
 
-    // Optional equals() and hashCode() methods for comparing Users
+    //equals() and hashCode() methods for comparing Users
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;

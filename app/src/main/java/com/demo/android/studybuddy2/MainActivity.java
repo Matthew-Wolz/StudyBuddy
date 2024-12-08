@@ -22,8 +22,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button loginButton;
-    private View loginBackgroundImage;
     private View homeFrag;
     private Button compatibilityResultsButton;
     private ActivityMainBinding binding;
@@ -31,31 +29,15 @@ public class MainActivity extends AppCompatActivity {
     private NotificationSystem notificationSystem;
     private LocationSystem locationSystem;
 
-    // [START declare_auth]
     private FirebaseAuth mAuth;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
-//        SharedPreferences sharedPref = getSharedPreferences("MyAppPrefs", MODE_PRIVATE);
-//        boolean isLoggedIn = sharedPref.getBoolean("isLoggedIn", false);
-//        if (!isLoggedIn)
-//        {
-//            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-//            startActivity(intent);
-//            finish(); // Close MainActivity
-//        }
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-//        setContentView(R.layout.activity_main);
-
-//        setupFragments();
-
-        //TODO: Remove stuff below this point?? (Excluding commented out code)
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -74,12 +56,6 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-
-//        navView.setVisibility(View.INVISIBLE);
-//        homeFrag.setVisibility(View.INVISIBLE);
-
-
-
         // -------- Notification and Location System Initialization ---------
         locationSystem = new LocationSystem();
         notificationSystem = new NotificationSystem();
@@ -90,55 +66,11 @@ public class MainActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        if(currentUser == null){
+        if (currentUser == null) {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
-        }else {
+        } else {
             Log.d("GoogleActivity", currentUser.getDisplayName());
         }
-
     }
-
-//    Chat Code: (Doesn't work, but may be a better approach to switching fragments)
-
-//    private void setupFragments() {
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//
-//        if (fragmentManager.findFragmentById(R.id.fragmentContainer) == null) {
-//            fragmentManager.beginTransaction()
-//                    .replace(R.id.fragmentContainer, new HomeFragment())
-//                    .commit();
-//        }
-//
-//        setupBottomNavigation();
-//    }
-//
-//    private void setupBottomNavigation() {
-//        BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
-//
-//        bottomNavigationView.setOnItemSelectedListener(item -> {
-//            Fragment selectedFragment;
-//
-//            switch (item.getItemId()) {
-//                case R.id.navigation_home:
-//                    selectedFragment = new HomeFragment();
-//                    break;
-//                case R.id.navigation_profile:
-//                    selectedFragment = new ProfileFragment();
-//                    break;
-//                case R.id.navigation_messages:
-//                default:
-//                    selectedFragment = new MessagesFragment();
-//                    break;
-//            }
-//
-//            getSupportFragmentManager().beginTransaction()
-//                    .replace(R.id.fragmentContainer, selectedFragment)
-//                    .commit();
-//
-//            return true;
-//        });
-//
-//        bottomNavigationView.setSelectedItemId(R.id.nav_home);
-//    }
 }
