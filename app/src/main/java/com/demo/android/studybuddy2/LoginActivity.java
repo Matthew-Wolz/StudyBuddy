@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     // [END declare_auth]
 
-
+    // this code already looks very clean
     private FirebaseFirestore db;
 
     private GoogleSignInClient mGoogleSignInClient;
