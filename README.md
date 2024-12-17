@@ -1,9 +1,3 @@
----
-title: "Study Buddy System Manual"
-author: "James, Braiden, Roshan, Aiden, Matthew"
-output: html_document
----
-
 # Overview
 The **Study Buddy** app aims to help users find compatible study partners based on survey responses. The app incorporates various design patterns to ensure scalability, maintainability, and smooth performance. The main components of the app are described below, focusing on the UI, database, authentication, compatibility algorithm, notification system, and location system.
 
