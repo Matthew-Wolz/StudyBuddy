@@ -100,3 +100,5 @@ Although the location system has not been fully implemented in the real-time dat
 1. Clone the repository:
    ```bash
    git clone https://github.com/Matthew-Wolz/study-buddy.git
+
+Use in Android Studio to test the application
